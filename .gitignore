@@ -1,0 +1,18 @@
+__pycache__/
+*.pyc
+.venv/
+*.egg-info/
+dist/
+output/
+*.stl
+
+# macOS
+.DS_Store
+
+# Editors
+.vscode/
+.idea/
+
+# Examples: keep only the sample PDF
+examples/*
+!examples/sample.pdf

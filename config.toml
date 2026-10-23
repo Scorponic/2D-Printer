@@ -1,0 +1,43 @@
+# pdf2stl configuration — edit these values to tune the printed "paper".
+# Command-line flags (see `pdf2stl --help`) override anything set here.
+
+[print]
+# Layer height in millimeters. Match this to the layer height you pick in PreForm.
+layer_height_mm = 0.050
+
+# Number of layers for white areas of the page.
+white_layers = 4
+
+# Number of layers for black areas of the page (ink).
+# Setting this to 0 cuts black areas out completely (stencil mode).
+black_layers = 2
+
+# Extra thickness added to every non-zero height, as a fraction of a layer.
+# If a model's top face sits exactly on a slice plane, the slicer may drop that layer.
+# Nudging it up by 0.25 avoids that. Use `pdf2stl --calibrate` to check how PreForm slices.
+thickness_bias_layers = 0.25
+
+[raster]
+# Resolution the PDF is rendered at. Higher = finer detail, larger STL, slower.
+# The Form 4L's XY pixel size is ~46 µm, about 550 DPI, so going past that has no effect.
+dpi = 300
+
+# Grayscale cutoff (0-255) between "black" and "white". Pixels darker than this are black.
+threshold = 128
+
+# Swap black and white before building geometry.
+invert = false
+
+[geometry]
+# Uniform scale applied to the page (1.0 = true paper size).
+scale = 1.0
+
+# Edge smoothing tolerance in pixels. Larger = fewer triangles but less faithful edges.
+simplify_px = 0.5
+
+# Drop specks of ink/paper smaller than this area, in square pixels.
+min_feature_px2 = 4.0
+
+[pdf]
+# Which pages to convert: "all", or a list of 1-based page numbers like [1, 3].
+pages = "all"
